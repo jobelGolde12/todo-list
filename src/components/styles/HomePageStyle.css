@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --clr-in-hover: darkorange;
+    --clr-in-hover-2: black;
+    --clr-primary: #fff;
+    --clr-secondary: #333;
+
+}
+._home-page{
+    width: 100vw;
+    height: 100vh;
+}
+
+._home-page .sidenav{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    background: #f5f5f5; 
+    overflow: hidden;
+    transition: .1s;
+}
+._home-page .main-content{
+    flex-grow: 1;
+    
+}
+.sidenav .li:hover{
+  background: var(--clr-in-hover-2);
+  color: var(--clr-primary);
+}
+.sidenav{
+    border-radius: 0;
+}
+.top-right-header .bi{
+    position: relative;
+    top: -30%;
+    margin-right: 3rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.top-right-header .bi:hover{
+    color: var(--clr-in-hover);
+}
+#toggleSidenavBtn{
+    position: absolute;
+    top: 50%;
+    background: transparent;
+    border: 0;
+    
+
+}
+#toggleSidenavBtn i{
+    color: var(--clr-primary);
+}
+._circle-add{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 85%;
+    right: 3%;
+    border-radius: 50%;
+    background: darkblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.table tr th , .table tr td{
+    background: transparent;
+    border-bottom: 0;
+    overflow: hidden;
+}
+.table{
+    border-collapse: collapse;
+}
+.table .todo-header-title , .table .todo-title{
+    width: 73%;
+}
+.todo--header-edit{
+    margin-left: 2rem;
+}
