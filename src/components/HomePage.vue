@@ -49,7 +49,7 @@
                  <tr class="_todo-data container d-flex flex-row mb-3">
                   <td class="todo-title text-light pt-3">{{array.todoName}}</td>
                   <td class="todo-date text-light ms-0 pt-3">{{array.time}}</td>
-                  <td class="todo-edit text-light"><button class="btn btn-info ms-4">Edit</button></td>
+                  <td class="todo-edit text-light"><button class="btn btn-info ms-2">Edit</button></td>
                   <td class="todo-delete text-light"><button class="btn btn-warning">Delete</button></td>
                   
                 </tr>
@@ -81,6 +81,11 @@
   </div>
 </div>
 
+<button class="btn btn-primary" @click="fetchData">Run php</button>
+<ul class="text-light">
+  <li class="text" v-for="item in data" :key="item.id"></li>
+</ul>
+
 
          <div class="_circle-add container bg-primary text-light" @click="toggleModal" data-bs-toggle="modal" data-bs-target="#addTodoModal"><i class="bi bi-plus"></i></div>
 
@@ -104,7 +109,8 @@ export default {
       todoInput: '',
       date: '',
       time: '',
-      dateModify: ''
+      dateModify: '',
+      data: []
     }
    },
    methods: {
@@ -131,6 +137,16 @@ export default {
       this.todoInput = ''
       this.date = ''
       this.time = ''
+    },
+    fetchData(){
+      fetch('./backend/index.php')
+      .then(response => response.json())
+      .then(data =>{
+        this.data = data;
+      })
+      .catch(error => {
+        console.error('Error fetching data: ', error);
+      })
     }
    } //End of methods
 }
