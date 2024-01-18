@@ -53,8 +53,6 @@
     top: 50%;
     background: transparent;
     border: 0;
-    
-
 }
 #toggleSidenavBtn i{
     color: var(--clr-primary);
@@ -82,7 +80,7 @@
     border-collapse: collapse;
 }
 .table .todo-header-title , .table .todo-title{
-    width: 73%;
+    width: 74%;
 }
 .todo--header-edit{
     margin-left: 2rem;

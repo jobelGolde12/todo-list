@@ -39,7 +39,7 @@
                 <tr class="_todo-data container d-flex flex-row mb-2">
                   <th class="todo-header-title text-primary">Todo</th>
                   <th class="todo-header-time text-primary">Time</th>
-                  <th class="todo--header-edit text-primary">Edit</th>
+                  <th class="todo--header-edit text-primary ms-3">Edit</th>
                   <th class="todo-header-delete text-primary ms-4">Delete</th>
                   
                 </tr>
