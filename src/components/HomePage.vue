@@ -139,10 +139,18 @@ export default {
       this.time = ''
     },
     fetchData(){
-      fetch('./backend/index.php')
-      .then(response => response.json())
+      fetch('http://localhost/vue-project/backend/Index.php')
+      .then(response => {
+        if (!response.ok) {
+        throw new Error(`Network response was not ok, status: ${response.status}`);
+      }
+         return response.json()
+      })
+      
+ 
       .then(data =>{
         this.data = data;
+        console.log(data)
       })
       .catch(error => {
         console.error('Error fetching data: ', error);
