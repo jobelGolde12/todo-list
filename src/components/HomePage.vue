@@ -32,22 +32,22 @@
             </div>          
         </div> <!--End of main-content-header -->
 
-
+            
          <div class="container _todo-list mt-5" >
               <table class="table">
                <thead>
                 <tr class="_todo-data container d-flex flex-row mb-2">
                   <th class="todo-header-title text-primary">Todo</th>
-                  <th class="todo-header-time text-primary">Time</th>
-                  <th class="todo--header-edit text-primary ms-3">Edit</th>
+                  <th class="todo-header-time text-primary ms-3">Time</th>
+                  <th class="todo--header-edit text-primary ms-4">Edit</th>
                   <th class="todo-header-delete text-primary ms-4">Delete</th>
                   
                 </tr>
                </thead>
 
               <tbody v-for="(array,index) in todoArray" :key="index">
-                 <tr class="_todo-data container d-flex flex-row mb-3">
-                  <td class="todo-title text-light pt-3">{{array.todoName}}</td>
+                 <tr class="_todo-data container d-flex flex-row mb-2">
+                  <td class="todo-title text-light pt-3">{{array.todo}}</td>
                   <td class="todo-date text-light ms-0 pt-3">{{array.time}}</td>
                   <td class="todo-edit text-light"><button class="btn btn-info ms-2">Edit</button></td>
                   <td class="todo-delete text-light"><button class="btn btn-warning">Delete</button></td>
@@ -81,10 +81,12 @@
   </div>
 </div>
 
-<button class="btn btn-primary" @click="fetchData">Run php</button>
+<!-- <button class="btn btn-primary" @click="fetchData">Run php</button>
 <ul class="text-light">
-  <li class="text" v-for="item in data" :key="item.id"></li>
-</ul>
+  <li class="text" v-for="item in data" :key="item.id">
+    {{ item.todo }} - {{ item.time }} - {{ item.date }}
+   </li>
+</ul> -->
 
 
          <div class="_circle-add container bg-primary text-light" @click="toggleModal" data-bs-toggle="modal" data-bs-target="#addTodoModal"><i class="bi bi-plus"></i></div>
@@ -149,14 +151,17 @@ export default {
       
  
       .then(data =>{
-        this.data = data;
-        console.log(data)
+        this.todoArray = data;
+     
       })
       .catch(error => {
         console.error('Error fetching data: ', error);
       })
     }
-   } //End of methods
+   }, //End of methods
+   created(){
+    this.fetchData()
+   }
 }
 </script>
 
